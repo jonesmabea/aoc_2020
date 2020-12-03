@@ -1,10 +1,10 @@
 import numpy as np
-from src.util import find_elements_with_sum, arr_mult
+from src.util import find_elements_with_sum, arr_mult, read_file
 import pprint
 
 pp = pprint.PrettyPrinter()
 if __name__ == "__main__":
-    arr = np.fromfile("input.txt", dtype=np.int, sep="\n")
+    arr = read_file("input.txt", int)
 
     valid_res = find_elements_with_sum(arr, 2020, 2)
     mult_res = arr_mult(valid_res)
