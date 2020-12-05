@@ -3,13 +3,15 @@ from typing import Sequence
 import numpy as np
 from itertools import combinations
 
-def read_file(input_path, cast=None):
+def read_file(input_path, cast=None, strip=False):
     lines = []
     with open(input_path,"r") as fh:
         for line in fh.readlines():
             line = cast(line) if cast is not None else line
+            line = line.strip() if strip else line
             lines.append(line)
     return lines
+
 def arr_sum(n_list: Sequence) -> np.array:
     """
     Provided list it will calculate sum
@@ -96,3 +98,4 @@ def verify_new_pass_validity(password, letter_constr, range_ind, allowed_occuren
     if letter_cnt:
         return assert_is_valid(letter_cnt,range_ind,allowed_occurences)
     return False
+
